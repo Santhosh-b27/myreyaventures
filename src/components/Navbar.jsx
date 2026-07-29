@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, Menu, X, Globe, Sparkles } from 'lucide-react';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function Navbar({ activePage, setActivePage, isModalOpen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +79,7 @@ export default function Navbar({ activePage, setActivePage, isModalOpen }) {
           >
             <div className="relative bg-white/95 p-1.5 rounded-xl border border-white/40 shadow-sm">
               <img 
-                src="/images/logo.76c63.png" 
+                src={getImagePath("/images/logo.76c63.png")} 
                 alt="Mytreya Ventures Logo" 
                 className="h-10 md:h-12 w-auto object-contain"
               />

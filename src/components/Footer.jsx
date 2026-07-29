@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowRight, ChevronUp, ShieldCheck } from 'lucide-react';
 import RevealOnScroll from './RevealOnScroll';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function Footer({ setActivePage }) {
   const handleLinkClick = (pageId) => {
@@ -26,7 +27,7 @@ export default function Footer({ setActivePage }) {
           <div className="flex flex-col gap-3.5">
             <div className="bg-white/95 p-2 rounded-xl inline-block w-fit backdrop-blur-md shadow-sm border border-white/20">
               <img 
-                src="/images/logo.76c63.png" 
+                src={getImagePath("/images/logo.76c63.png")} 
                 alt="Mytreya Ventures Logo" 
                 className="h-9 md:h-10 w-auto object-contain"
               />
