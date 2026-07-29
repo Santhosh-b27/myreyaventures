@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zap, Cpu, TrendingUp, CheckCircle } from 'lucide-react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function Services() {
   const serviceCategories = [
@@ -8,7 +9,7 @@ export default function Services() {
       title: "Power Sector Installations",
       badge: "Power & Substation Grid",
       icon: <Zap size={24} />,
-      image: "/images/card_power.jpg",
+      image: getImagePath("/images/card_power.jpg"),
       items: [
         "Power system installation, testing & commissioning.",
         "Electro-mechanical installations and grid synchronization.",
@@ -20,7 +21,7 @@ export default function Services() {
       title: "Railways & Transit Systems",
       badge: "Rail & Transit Infrastructure",
       icon: <Cpu size={24} />,
-      image: "/images/card_rail_works.jpg",
+      image: getImagePath("/images/card_rail_works.jpg"),
       items: [
         "Railway Construction Works (Infra, Track, OCS, Signalling, Communication, Depot).",
         "Power system installation, testing & commissioning for transit networks.",
@@ -32,7 +33,7 @@ export default function Services() {
       title: "Oil & Gas Instrumentation",
       badge: "Offshore & Refinery Instrumentation",
       icon: <CheckCircle size={24} />,
-      image: "/images/banner_oil_gas.jpg",
+      image: getImagePath("/images/banner_oil_gas.jpg"),
       items: [
         "Electrical & Instrumentation installation for deep-sea refinery platforms.",
         "Subcontracted back-to-back testing & commissioning for petrochemical CDU/VDU units.",
@@ -44,7 +45,7 @@ export default function Services() {
       title: "Project Control & Claims",
       badge: "EOT & Commercial Claims",
       icon: <TrendingUp size={24} />,
-      image: "/images/card_claims.jpg",
+      image: getImagePath("/images/card_claims.jpg"),
       items: [
         "Project Management Consultancy for massive transit systems & refinery units.",
         "Contract administration, Extension of Time (EOT) claim development.",
@@ -90,7 +91,7 @@ export default function Services() {
   return (
     <div className="max-w-7xl mx-auto w-full px-4 md:px-8 py-12 flex flex-col gap-24">
       
-      {/* Header (Without Icon) */}
+      {/* Header */}
       <RevealOnScroll direction="up">
         <div className="flex flex-col gap-3">
           <span className="text-brand-orange uppercase text-xs font-bold tracking-widest font-outfit">
@@ -105,13 +106,13 @@ export default function Services() {
         </div>
       </RevealOnScroll>
 
-      {/* Services Showcase (Borderless Open Spatial Layout - No Cards) */}
+      {/* Services Showcase */}
       <section className="flex flex-col gap-16 md:gap-24">
         {serviceCategories.map((cat, idx) => (
           <RevealOnScroll key={idx} direction="up" delay={idx * 100}>
             <div className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 md:gap-14 items-center`}>
               
-              {/* Image Showcase Box (Borderless Spatial Container) */}
+              {/* Image Showcase Box */}
               <div className="w-full lg:w-1/2 aspect-[16/10] rounded-3xl overflow-hidden relative shadow-2xl group border border-slate-200/80 bg-slate-950 shrink-0">
                 <img 
                   src={cat.image} 
@@ -126,7 +127,7 @@ export default function Services() {
                 </span>
               </div>
 
-              {/* Content Side (Cardless Spatial Presentation) */}
+              {/* Content Side */}
               <div className="w-full lg:w-1/2 flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="p-3 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 text-brand-orange shadow-xs">
@@ -158,13 +159,12 @@ export default function Services() {
         ))}
       </section>
 
-      {/* Operational Methodology Section (Frequently Used Dark Slate Background) */}
+      {/* Operational Methodology Section */}
       <RevealOnScroll direction="up" delay={200}>
         <section className="flex flex-col gap-12 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-brand-orange/15 rounded-full filter blur-3xl pointer-events-none" />
           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-orange via-amber-500 to-brand-orange" />
           
-          {/* Section Heading */}
           <div className="flex flex-col md:flex-row justify-between gap-6 items-start border-b border-slate-800 pb-8 relative z-10">
             <div className="flex flex-col gap-2 max-w-xl">
               <span className="text-brand-orange text-xs font-extrabold uppercase tracking-wider font-outfit">
@@ -179,7 +179,6 @@ export default function Services() {
             </p>
           </div>
 
-          {/* Methodology Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {methodologySteps.map((step, idx) => (
               <div key={idx} className="flex flex-col gap-3 relative p-6 bg-slate-900/90 border border-slate-800 rounded-2xl hover:border-brand-orange/50 hover:bg-slate-900 transition-all duration-300 group shadow-md">

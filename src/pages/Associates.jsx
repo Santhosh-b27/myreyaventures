@@ -1,44 +1,45 @@
 import React from 'react';
 import { ExternalLink, Handshake, ShieldAlert } from 'lucide-react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function Associates() {
   const partners = [
     {
       name: "Sree Harika Engineers & Builders",
       location: "India",
-      image: "/images/card_civil.jpg",
+      image: getImagePath("/images/card_civil.jpg"),
       desc: "Specialized in civil foundation designs, structural engineering, and general infrastructure construction projects."
     },
     {
       name: "Mytreya Ventures (India)",
       location: "India",
-      image: "/images/card_power.jpg",
+      image: getImagePath("/images/card_power.jpg"),
       desc: "Liaison partner for domestic electrical installations, power substation testing, and grid commissioning."
     },
     {
       name: "Global Vision Management Consultancy",
       location: "Abu Dhabi (UAE)",
-      image: "/images/card_planning.jpg",
+      image: getImagePath("/images/card_planning.jpg"),
       desc: "Associate advisory partner handling Middle East project management, commercial strategy, and contract coordination."
     },
     {
       name: "Eversource Electromechanical Engineering LLC",
       location: "Dubai (UAE)",
-      image: "/images/card_ei.jpg",
+      image: getImagePath("/images/card_ei.jpg"),
       desc: "Partner for mechanical and power system design installations on high-capacity industrial assets."
     },
     {
       name: "Maverick Power Technologies Limited",
       location: "United Kingdom",
-      image: "/images/service3.76c63.jpg",
+      image: getImagePath("/images/service3.76c63.jpg"),
       desc: "Primary design associate for Electrical Engineering drawings, schema verification, and simulation studies.",
       link: "http://www.maverickpowertech.com/"
     },
     {
       name: "Sri Sai Techno & Engineers Pvt. Ltd.",
       location: "India",
-      image: "/images/card_rail_works.jpg",
+      image: getImagePath("/images/card_rail_works.jpg"),
       desc: "Subcontract associate for specialized railway track works, signaling systems, and communications setups.",
       link: "http://www.srisaiprojects.com/"
     }
@@ -47,7 +48,7 @@ export default function Associates() {
   return (
     <div className="max-w-7xl mx-auto w-full px-4 md:px-8 py-12 flex flex-col gap-16">
       
-      {/* Header (Without Icon) */}
+      {/* Header */}
       <RevealOnScroll direction="up">
         <div className="flex flex-col gap-3">
           <span className="text-brand-orange uppercase text-xs font-bold tracking-widest font-outfit">
@@ -62,13 +63,12 @@ export default function Associates() {
         </div>
       </RevealOnScroll>
 
-      {/* Associates Showcase (Borderless Spatial Layout - No Cards) */}
+      {/* Associates Showcase */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
         {partners.map((partner, idx) => (
           <RevealOnScroll key={idx} direction="up" delay={idx * 100}>
             <div className="flex flex-col gap-4 group h-full">
               
-              {/* Borderless Spatial Image Showcase */}
               <div className="w-full aspect-[16/10] rounded-3xl overflow-hidden relative shadow-xl border border-slate-200/80 bg-slate-950 shrink-0">
                 <img 
                   src={partner.image} 
@@ -83,7 +83,6 @@ export default function Associates() {
                 </span>
               </div>
 
-              {/* Text Details (Cardless & Minimalist) */}
               <div className="flex flex-col justify-between flex-grow gap-2 px-1">
                 <div className="flex flex-col gap-2">
                   <h3 className="text-slate-900 font-extrabold font-outfit text-xl tracking-tight leading-snug group-hover:text-brand-orange transition-colors">
@@ -113,7 +112,7 @@ export default function Associates() {
         ))}
       </div>
 
-      {/* Scope / Exclusions Banner (Brand Orange Background) */}
+      {/* Scope / Exclusions Banner */}
       <RevealOnScroll direction="zoom-in" delay={250}>
         <section className="bg-gradient-to-br from-brand-orange via-[#f79e2c] to-[#e6820c] text-white border border-brand-orange/30 p-8 md:p-10 rounded-3xl flex flex-col sm:flex-row gap-6 items-start shadow-xl relative overflow-hidden">
           <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/30 flex items-center justify-center shrink-0 text-white relative z-10 shadow-xs">

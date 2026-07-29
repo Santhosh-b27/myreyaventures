@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, RotateCw, Landmark, Activity, Layers, Briefcase, Zap, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, CheckCircle2, RotateCw, Landmark, Activity, ChevronLeft, ChevronRight } from 'lucide-react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function ExecutedProjects() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -14,7 +15,7 @@ export default function ExecutedProjects() {
       role: "Signalling Programme Management services for the cross-border rapid transit system between Malaysia and Singapore.",
       timeline: "May 2021 – Present",
       status: "Ongoing",
-      image: "/images/banner_rail.jpg"
+      image: getImagePath("/images/banner_rail.jpg")
     },
     {
       title: "KVDT Nationwide TETRA Network, Malaysia",
@@ -23,7 +24,7 @@ export default function ExecutedProjects() {
       role: "Extension of Time (EOT), Prolongation, and Loss and Expense Claims advocacy for nationwide railway communications.",
       timeline: "November 2021 – Present",
       status: "Ongoing",
-      image: "/images/card_claims.jpg"
+      image: getImagePath("/images/card_claims.jpg")
     }
   ];
 
@@ -124,7 +125,6 @@ export default function ExecutedProjects() {
     ? executedProjects 
     : executedProjects.filter(p => p.category === activeFilter);
 
-  // Slider Pagination Logic (2 items per slide)
   const itemsPerPage = 2;
   const totalSlides = Math.max(1, Math.ceil(filteredProjects.length / itemsPerPage));
 
@@ -146,7 +146,7 @@ export default function ExecutedProjects() {
   return (
     <div className="max-w-7xl mx-auto w-full px-4 md:px-8 py-12 flex flex-col gap-24">
       
-      {/* Header (Without Icon) */}
+      {/* Header */}
       <RevealOnScroll direction="up">
         <div className="flex flex-col gap-3">
           <span className="text-brand-orange uppercase text-xs font-bold tracking-widest font-outfit">
@@ -161,7 +161,7 @@ export default function ExecutedProjects() {
         </div>
       </RevealOnScroll>
 
-      {/* Ongoing Projects Section (Borderless Spatial Layout - No Cards) */}
+      {/* Ongoing Projects Section */}
       <section className="flex flex-col gap-12">
         <RevealOnScroll direction="left">
           <div className="flex flex-col gap-2">
@@ -180,7 +180,6 @@ export default function ExecutedProjects() {
             <RevealOnScroll key={idx} direction="up" delay={idx * 150}>
               <div className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 md:gap-14 items-center`}>
                 
-                {/* Borderless Spatial Image Container */}
                 <div className="w-full lg:w-1/2 aspect-[16/10] rounded-3xl overflow-hidden relative shadow-2xl group border border-slate-200/80 bg-slate-950 shrink-0">
                   <img 
                     src={proj.image} 
@@ -190,7 +189,6 @@ export default function ExecutedProjects() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                   
-                  {/* Pulsing Live Status Tag */}
                   <span className="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md border border-white/20 text-white text-xs font-extrabold font-outfit uppercase px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
                     <RotateCw size={13} className="animate-spin text-brand-orange" />
                     {proj.status}
@@ -201,7 +199,6 @@ export default function ExecutedProjects() {
                   </span>
                 </div>
 
-                {/* Cardless Spatial Text Presentation */}
                 <div className="w-full lg:w-1/2 flex flex-col gap-4">
                   <div className="flex items-center gap-2.5 text-xs font-extrabold text-brand-orange bg-brand-orange/10 border border-brand-orange/20 px-3.5 py-1.5 rounded-full w-fit">
                     <Landmark size={14} />
@@ -228,7 +225,7 @@ export default function ExecutedProjects() {
         </div>
       </section>
 
-      {/* Completed Achievements & Portfolio History (Minimal Cardless Spatial Slider Only) */}
+      {/* Completed Achievements & Portfolio History */}
       <section className="flex flex-col gap-10">
         <RevealOnScroll direction="left">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80">
@@ -241,7 +238,6 @@ export default function ExecutedProjects() {
               </h2>
             </div>
 
-            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
               {[
                 { id: 'all', label: 'All Projects' },
@@ -265,15 +261,11 @@ export default function ExecutedProjects() {
           </div>
         </RevealOnScroll>
 
-        {/* Minimal Borderless Spatial Slider Track */}
         <div className="flex flex-col gap-10">
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 min-h-[220px]">
             {displayedProjects.map((proj, idx) => (
               <RevealOnScroll key={proj.id} direction="up" delay={idx * 100}>
                 <div className="flex flex-col gap-4 p-2 relative group border-l-2 border-slate-200 hover:border-brand-orange pl-6 transition-all duration-300">
-                  
-                  {/* Top Index & Category */}
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-4xl lg:text-5xl font-black font-mono text-brand-orange/60 group-hover:text-brand-orange transition-colors">
                       {proj.id}
@@ -283,7 +275,6 @@ export default function ExecutedProjects() {
                     </span>
                   </div>
 
-                  {/* Title & Client */}
                   <div className="flex flex-col gap-1.5">
                     <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 font-outfit tracking-tight group-hover:text-brand-orange transition-colors leading-snug">
                       {proj.title}
@@ -294,26 +285,21 @@ export default function ExecutedProjects() {
                     </div>
                   </div>
 
-                  {/* Role Narrative */}
                   <p className="text-slate-600 text-xs md:text-sm font-medium leading-relaxed">
                     {proj.role}
                   </p>
 
-                  {/* Status Timeline */}
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-400 pt-3 border-t border-slate-100 mt-auto">
                     <CheckCircle2 size={14} className="text-brand-orange" />
                     <span>Status: <strong className="text-slate-700 font-outfit">{proj.timeline}</strong></span>
                   </div>
-
                 </div>
               </RevealOnScroll>
             ))}
           </div>
 
-          {/* Centered Dots & Slider Action Navigation */}
           {totalSlides > 1 && (
             <div className="flex items-center justify-center gap-5 pt-6 border-t border-slate-200/80">
-              {/* Prev Button */}
               <button
                 onClick={handlePrevSlide}
                 className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer hover:scale-105"
@@ -322,7 +308,6 @@ export default function ExecutedProjects() {
                 <ChevronLeft size={20} />
               </button>
 
-              {/* Centered Dots Indicator */}
               <div className="flex items-center gap-2 px-2">
                 {Array.from({ length: totalSlides }).map((_, dotIdx) => (
                   <button
@@ -338,7 +323,6 @@ export default function ExecutedProjects() {
                 ))}
               </div>
 
-              {/* Next Button */}
               <button
                 onClick={handleNextSlide}
                 className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer hover:scale-105"
@@ -348,7 +332,6 @@ export default function ExecutedProjects() {
               </button>
             </div>
           )}
-
         </div>
       </section>
 

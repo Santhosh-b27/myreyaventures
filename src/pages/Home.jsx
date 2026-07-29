@@ -3,6 +3,7 @@ import { Shield, UserCheck, Award, Eye, Target, Briefcase, ArrowRight, Zap, Chec
 import RevealOnScroll from '../components/RevealOnScroll';
 import AnimatedCounter from '../components/AnimatedCounter';
 import { CLIENT_LOGOS } from '../components/ClientLogos';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function Home({ setActivePage }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,28 +12,28 @@ export default function Home({ setActivePage }) {
     {
       title: "WELCOME TO MYTREYA VENTURES SDN BHD",
       subtitle: "Delivering Engineering Excellence Across Rail, Power, and Infrastructure Projects Worldwide.",
-      bg: "/images/hero_banner_new.jpg",
+      bg: getImagePath("/images/hero_banner_new.jpg"),
       cta: "Explore Our Services",
       page: "services"
     },
     {
       title: "PIONEERS IN POWER SYSTEM INSTALLATION",
       subtitle: "Advanced testing, commissioning, and construction for railway and industrial power grids.",
-      bg: "/images/hero_banner_new.jpg",
+      bg: getImagePath("/images/hero_banner_new.jpg"),
       cta: "View Executed Projects",
       page: "projects"
     },
     {
       title: "OIL & GAS INSTRUMENTATION SPECIALISTS",
       subtitle: "High-precision electro-mechanical solutions and rigorous quality standards for deep-sea and refinery installations.",
-      bg: "/images/banner_oil_gas.jpg",
+      bg: getImagePath("/images/banner_oil_gas.jpg"),
       cta: "Contact Us Today",
       page: "contact"
     },
     {
       title: "PROJECT MANAGEMENT & CLAIMS CONSULTANCY",
       subtitle: "Specialized in Extension of Time (EOT), Loss and Expense Claims, and Master Planning.",
-      bg: "/images/banner_rail.jpg",
+      bg: getImagePath("/images/banner_rail.jpg"),
       cta: "Learn About Us",
       page: "about"
     }
@@ -56,37 +57,37 @@ export default function Home({ setActivePage }) {
     {
       title: "Electrical & Instrumentation",
       desc: "Installation, testing, and commissioning for major industrial, petrochemical, and Oil & Gas developments.",
-      image: "/images/card_ei.jpg",
+      image: getImagePath("/images/card_ei.jpg"),
       badge: "E&I Engineering"
     },
     {
       title: "Power System Installation",
       desc: "Comprehensive power system grid creation, cabling, testing, and commissioning tailored for Rail and Subway Projects.",
-      image: "/images/card_power.jpg",
+      image: getImagePath("/images/card_power.jpg"),
       badge: "Substation & Grid"
     },
     {
       title: "Commercial & Contract Claims",
       desc: "Expert commercial representation, contract administration, EOT developments, and prolongation loss/expense recovery.",
-      image: "/images/card_claims.jpg",
+      image: getImagePath("/images/card_claims.jpg"),
       badge: "EOT & Disputes"
     },
     {
       title: "Master Planning & Scope",
       desc: "Strategic project structuring, scheduling, feasibility analysis, risk management, and overall master programme delivery.",
-      image: "/images/card_planning.jpg",
+      image: getImagePath("/images/card_planning.jpg"),
       badge: "Primavera & TILOS"
     },
     {
       title: "Railway Construction Works",
       desc: "End-to-end track installations, signalling, communication networks, depots, OCS electrification, AFC, and PSD setups.",
-      image: "/images/card_rail_works.jpg",
+      image: getImagePath("/images/card_rail_works.jpg"),
       badge: "Transit Systems"
     },
     {
       title: "Civil & General Building",
       desc: "General infrastructure creation, civil structural works, substation structures, and specialized building construction.",
-      image: "/images/card_civil.jpg",
+      image: getImagePath("/images/card_civil.jpg"),
       badge: "Civil Infrastructure"
     }
   ];
@@ -97,37 +98,37 @@ export default function Home({ setActivePage }) {
       role: "Managing Director",
       specialty: "Railways & Transit Specialist",
       qualification: "B.Sc. Construction Management, Honors – Coventry University, UK (34+ Yrs Exp)",
-      image: "/images/team_james.jpg"
+      image: getImagePath("/images/team_james.jpg")
     },
     {
       name: "Lakshmipathi Rao",
       role: "Project Controls Specialist",
       specialty: "Systems Engineering Lead",
       qualification: "M.Sc. Strategic Planning – Heriot-Watt Univ, Dubai; B.Tech EEE (24+ Yrs Exp)",
-      image: "/images/team_rao.jpg"
+      image: getImagePath("/images/team_rao.jpg")
     },
     {
       name: "Sateesh Kumar",
       role: "General Manager",
       specialty: "E&I Operations Lead",
       qualification: "MBA – ITM India; B.Tech EEE; Ex-Maire Tecnimont HOD (32+ Yrs Exp)",
-      image: "/images/team_sateesh.jpg"
+      image: getImagePath("/images/team_sateesh.jpg")
     },
     {
       name: "Chandra Sekhar",
       role: "Senior Electrical Engineer",
       specialty: "Operations Specialist",
       qualification: "B.Tech EEE; Indian President Award Recipient (25+ Yrs Exp)",
-      image: "/images/team_sekhar.jpg"
+      image: getImagePath("/images/team_sekhar.jpg")
     }
   ];
 
   return (
     <div className="w-full flex flex-col gap-24 relative overflow-hidden">
       
-      {/* Hero Banner Section (Extends Behind Fixed Transparent Header Overlay) */}
+      {/* Hero Banner Section */}
       <section className="relative w-full min-h-[680px] lg:min-h-[820px] bg-slate-950 flex items-center overflow-hidden pt-36 md:pt-40 lg:pt-44 pb-20">
-        {/* Background Image Slider (Clear & High Contrast) */}
+        {/* Background Image Slider */}
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -140,7 +141,7 @@ export default function Home({ setActivePage }) {
           />
         ))}
 
-        {/* Soft Ambient Contrast Layer (No Heavy Black Filter) */}
+        {/* Soft Ambient Contrast Layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/15 to-slate-950/40 pointer-events-none" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-orange/15 rounded-full filter blur-[140px] pointer-events-none animate-pulse-glow" />
 
@@ -199,9 +200,8 @@ export default function Home({ setActivePage }) {
         </RevealOnScroll>
       </section>
 
-      {/* Services Grid Section - "What We Deliver" (Extended Full-Width Section Card) */}
+      {/* Services Grid Section - "What We Deliver" */}
       <section className="w-full relative py-16 md:py-24 bg-gradient-to-br from-brand-orange via-[#f79e2c] to-[#e6820c] text-white shadow-[0_20px_50px_rgba(246,147,28,0.25)] border-y border-brand-orange/30 overflow-hidden">
-        {/* Ambient Glow & Wave Decorators */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full filter blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-600/20 rounded-full filter blur-3xl pointer-events-none" />
 
@@ -227,7 +227,6 @@ export default function Home({ setActivePage }) {
                   onClick={() => setActivePage('services')}
                   className="bg-white rounded-3xl flex flex-col relative overflow-hidden group cursor-pointer h-full border border-white/80 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-400"
                 >
-                  {/* Image Header */}
                   <div className="h-48 w-full overflow-hidden border-b border-slate-100 relative shrink-0">
                     <img 
                       src={srv.image} 
@@ -241,7 +240,6 @@ export default function Home({ setActivePage }) {
                     </span>
                   </div>
 
-                  {/* Card Body */}
                   <div className="p-6 flex flex-col justify-between flex-grow gap-4 relative z-10">
                     <div className="flex flex-col gap-2">
                       <h3 className="text-xl font-bold text-slate-900 tracking-wide font-outfit group-hover:text-brand-orange transition-colors">
@@ -266,8 +264,6 @@ export default function Home({ setActivePage }) {
 
       {/* Foundations & Corporate Profile side-by-side */}
       <section className="max-w-7xl mx-auto w-full px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
-        {/* Core Values / Focus */}
         <RevealOnScroll direction="left" delay={100}>
           <div className="flex flex-col gap-8 bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10 relative overflow-hidden glass-panel-dark h-full shadow-xl text-white">
             <div className="flex flex-col gap-2">
@@ -319,7 +315,6 @@ export default function Home({ setActivePage }) {
           </div>
         </RevealOnScroll>
 
-        {/* Corporate Profile Highlights */}
         <RevealOnScroll direction="right" delay={200}>
           <div className="flex flex-col gap-8 bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10 relative overflow-hidden glass-panel-dark h-full shadow-xl text-white">
             <div className="flex flex-col gap-2">
@@ -370,10 +365,9 @@ export default function Home({ setActivePage }) {
             </div>
           </div>
         </RevealOnScroll>
-
       </section>
 
-      {/* Leadership Team Showcase Section (Sleek Borderless Portrait Showcase) */}
+      {/* Leadership Team Showcase Section */}
       <section className="max-w-7xl mx-auto w-full px-4 md:px-8 flex flex-col gap-10">
         <RevealOnScroll direction="up">
           <div className="flex flex-col gap-2.5 items-center text-center">
@@ -396,7 +390,6 @@ export default function Home({ setActivePage }) {
                 onClick={() => setActivePage('about')}
                 className="relative rounded-3xl overflow-hidden aspect-[3/4] group cursor-pointer shadow-xl hover:shadow-[0_20px_50px_rgba(246,147,28,0.25)] hover:-translate-y-2 transition-all duration-500 bg-slate-950 border border-slate-800"
               >
-                {/* Background Image */}
                 <img 
                   src={member.image} 
                   alt={member.name} 
@@ -408,10 +401,8 @@ export default function Home({ setActivePage }) {
                   }}
                 />
 
-                {/* Dark Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/60 transition-colors duration-500" />
 
-                {/* Bottom Content Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-1.5 z-10">
                   <span className="px-3 py-1 bg-brand-orange/90 backdrop-blur-md text-white text-[10px] font-extrabold uppercase font-outfit rounded-full w-fit shadow-xs">
                     {member.role}
@@ -447,11 +438,8 @@ export default function Home({ setActivePage }) {
           </div>
         </RevealOnScroll>
 
-        {/* Infinite Motion Marquee Tracks Stream */}
         <RevealOnScroll direction="zoom-in" delay={150}>
           <div className="marquee-container mask-edge-fade overflow-hidden w-full flex flex-col gap-6 py-2">
-            
-            {/* Track 1: Smooth Leftward Motion */}
             <div className="animate-marquee-track-left">
               {[...CLIENT_LOGOS.slice(0, 9), ...CLIENT_LOGOS.slice(0, 9)].map((client, idx) => (
                 <div 
@@ -466,7 +454,6 @@ export default function Home({ setActivePage }) {
               ))}
             </div>
 
-            {/* Track 2: Smooth Rightward Motion */}
             <div className="animate-marquee-track-right">
               {[...CLIENT_LOGOS.slice(9), ...CLIENT_LOGOS.slice(9)].map((client, idx) => (
                 <div 
@@ -480,7 +467,6 @@ export default function Home({ setActivePage }) {
                 </div>
               ))}
             </div>
-
           </div>
         </RevealOnScroll>
       </section>
@@ -489,7 +475,6 @@ export default function Home({ setActivePage }) {
       <section className="relative max-w-7xl mx-auto w-full px-4 md:px-8 mb-12">
         <RevealOnScroll direction="tilt-3d">
           <div className="relative w-full rounded-3xl p-8 md:p-14 overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800 text-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
-            {/* Glow blobs */}
             <div className="absolute right-0 top-0 w-96 h-96 bg-brand-orange/20 rounded-full filter blur-[100px] pointer-events-none" />
 
             <div className="flex flex-col gap-3 relative z-10 max-w-2xl text-center md:text-left">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { History, Target, Eye, ShieldAlert, Award, Compass, Users, X, ChevronRight, GraduationCap, Briefcase, UserCheck } from 'lucide-react';
 import RevealOnScroll from '../components/RevealOnScroll';
+import { getImagePath } from '../utils/imageUtils';
 
 export default function AboutUs({ setIsModalOpen }) {
   const [activeTab, setActiveTab] = useState('history');
@@ -22,7 +23,7 @@ export default function AboutUs({ setIsModalOpen }) {
       role: "Founder & Managing Director",
       specialty: "Railways & Transit Specialist",
       education: "B.Sc. Construction Management, Honors – Coventry University, UK",
-      image: "/images/team_james.jpg",
+      image: getImagePath("/images/team_james.jpg"),
       experienceYears: "34+ Years",
       desc: [
         "James Williams has 34 years+ of Railways / Transportation project experience gained in Dubai, Hong Kong, Malaysia, Singapore, Korea, Taiwan, Japan, Macao, Thailand, the USA and the UK, having demonstrated the ability to support a diverse range of high profile projects vis-a-vis development of coordinated project management / controls tools.",
@@ -37,7 +38,7 @@ export default function AboutUs({ setIsModalOpen }) {
       role: "Project Controls Specialist",
       specialty: "Systems Engineering Lead",
       education: "M.Sc. Strategic Planning & Project Management – Heriot-Watt University, Dubai; B.Tech EEE",
-      image: "/images/team_rao.jpg",
+      image: getImagePath("/images/team_rao.jpg"),
       experienceYears: "24+ Years",
       desc: [
         "Lakshmipathi Rao has 24 years+ of expertise in Project Management Strategies development from pre-tendering to close-out the projects. Worked with various national and international organization in Oman, Dubai, Abu Dhabi, Qatar, India, Georgia and Malaysia.",
@@ -51,7 +52,7 @@ export default function AboutUs({ setIsModalOpen }) {
       role: "General Manager",
       specialty: "Electrical & Instrumentation Operations",
       education: "MBA – Institute for Technology & Management, India; B.Tech EEE – JNTU, India",
-      image: "/images/team_sateesh.jpg",
+      image: getImagePath("/images/team_sateesh.jpg"),
       experienceYears: "32+ Years",
       desc: [
         "Sateesh Kumar has 32 years expertise of handling Electrical & Instrumentation works of EPC nature in Oil and Gas, Petrochemicals, Power Plants, Refineries, Infrastructure Projects, Fertilizers etc., in the capacity of Project Manager/ General Manager / Project Director.",
@@ -64,7 +65,7 @@ export default function AboutUs({ setIsModalOpen }) {
       role: "Senior Electrical Engineer",
       specialty: "Operations Specialist",
       education: "B.Tech. Electrical & Electronics Engineering (President Award Winner)",
-      image: "/images/team_sekhar.jpg",
+      image: getImagePath("/images/team_sekhar.jpg"),
       experienceYears: "25+ Years",
       desc: [
         "Chandra Sekhar is an Electrical & Electronics Engineer with over 25 years of Experience in the Oil, Gas, Petrochemical, Energy Sectors worked nationally and internationally.",
@@ -118,7 +119,6 @@ export default function AboutUs({ setIsModalOpen }) {
             Click on any personnel member below to view their detailed professional qualifications, career achievements, and project leadership history.
           </p>
 
-          {/* Interactive Personnel Member Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-2">
             {teamMembers.map((member) => (
               <div
@@ -126,7 +126,6 @@ export default function AboutUs({ setIsModalOpen }) {
                 onClick={() => setSelectedPersonnel(member)}
                 className="bg-white border border-slate-200 p-5 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-xl hover:border-brand-orange/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
               >
-                {/* Photo & Experience Tag */}
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 shrink-0">
                   <img
                     src={member.image}
@@ -144,7 +143,6 @@ export default function AboutUs({ setIsModalOpen }) {
                   </span>
                 </div>
 
-                {/* Name & Designation */}
                 <div className="flex flex-col gap-1">
                   <span className="text-brand-orange text-xs font-extrabold uppercase tracking-wider font-outfit">
                     {member.role}
@@ -157,7 +155,6 @@ export default function AboutUs({ setIsModalOpen }) {
                   </p>
                 </div>
 
-                {/* Click action bar */}
                 <div className="flex items-center justify-between text-xs font-extrabold text-brand-orange pt-3 border-t border-slate-100 mt-auto group-hover:translate-x-1 transition-transform">
                   <span className="flex items-center gap-1.5">
                     <UserCheck size={14} />
@@ -244,7 +241,7 @@ export default function AboutUs({ setIsModalOpen }) {
   return (
     <div className="max-w-7xl mx-auto w-full px-4 md:px-8 py-12 flex flex-col gap-12 relative">
       
-      {/* Banner / Header */}
+      {/* Header */}
       <RevealOnScroll direction="up">
         <div className="flex flex-col gap-3">
           <span className="text-brand-orange uppercase text-xs font-bold tracking-widest font-outfit">
@@ -259,10 +256,10 @@ export default function AboutUs({ setIsModalOpen }) {
         </div>
       </RevealOnScroll>
 
-      {/* Main Container - Sidebar Tabs + Content Box */}
+      {/* Main Container */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
         
-        {/* Left Side Tabs (Brand Orange Card) */}
+        {/* Left Side Tabs */}
         <RevealOnScroll direction="left" delay={100} className="lg:col-span-1 w-full">
           <div className="flex flex-col gap-2.5 bg-gradient-to-br from-brand-orange via-[#f79e2c] to-[#e6820c] border border-brand-orange/30 p-5 rounded-3xl shadow-lg text-white">
             <h3 className="text-xs font-extrabold uppercase text-white tracking-wider px-2 mb-1 font-outfit border-b border-white/20 pb-2">
@@ -301,7 +298,6 @@ export default function AboutUs({ setIsModalOpen }) {
               {currentTab.content}
             </div>
 
-            {/* Decorative radial overlay */}
             <div className="absolute -bottom-12 -right-12 w-56 h-56 bg-brand-orange/5 rounded-full filter blur-3xl pointer-events-none" />
           </div>
         </RevealOnScroll>
@@ -327,11 +323,8 @@ export default function AboutUs({ setIsModalOpen }) {
       {selectedPersonnel && (
         <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-300">
           <div className="bg-slate-950 border border-slate-800 text-white max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-10 relative shadow-2xl font-outfit flex flex-col gap-6 scrollbar-thin">
-            
-            {/* Ambient Orange Glow */}
             <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-brand-orange/20 rounded-full filter blur-3xl pointer-events-none" />
 
-            {/* Header & Close Button */}
             <div className="flex justify-between items-start gap-4 relative z-10 border-b border-slate-800 pb-4 shrink-0">
               <div className="flex flex-col gap-1">
                 <span className="text-brand-orange font-extrabold text-xs uppercase tracking-widest">
@@ -353,9 +346,7 @@ export default function AboutUs({ setIsModalOpen }) {
               </button>
             </div>
 
-            {/* Modal Body: Photo & Full Experience */}
             <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
-              {/* Photo & Education Left Column */}
               <div className="w-full md:w-64 shrink-0 flex flex-col gap-4">
                 <div className="w-full h-72 md:h-80 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-lg relative shrink-0">
                   <img
@@ -374,7 +365,6 @@ export default function AboutUs({ setIsModalOpen }) {
                 </div>
               </div>
 
-              {/* Biography Right Column */}
               <div className="flex-1 flex flex-col gap-4 text-xs md:text-sm text-slate-300 leading-relaxed font-medium">
                 <h4 className="text-white font-extrabold text-sm uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-3">
                   <Briefcase size={16} className="text-brand-orange" />
@@ -390,7 +380,6 @@ export default function AboutUs({ setIsModalOpen }) {
               </div>
             </div>
 
-            {/* Footer Action */}
             <div className="flex justify-end border-t border-slate-800 pt-4 relative z-10 shrink-0">
               <button
                 onClick={() => setSelectedPersonnel(null)}
